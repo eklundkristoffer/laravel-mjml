@@ -1,6 +1,6 @@
 <?php
 
-namespace Asahasrabuddhe\LaravelMJML\Providers;
+namespace Progglund\LaravelMJML\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Asahasrabuddhe\LaravelMJML\Mail;
+namespace Progglund\LaravelMJML\Mail;
 
-use Asahasrabuddhe\LaravelMJML\Process\MJML;
+use Progglund\LaravelMJML\Process\MJML;
 use Illuminate\Mail\Mailable as IlluminateMailable;
 use Illuminate\Support\Facades\View;
 
@@ -25,7 +25,7 @@ class Mailable extends IlluminateMailable
     public function mjml($view, array $data = [])
     {
         $this->mjml     = $view;
-        $this->viewData = array_merge($this->viewData, $data);
+        $this->viewData = array_merge($this->buildViewData(), $data);
 
         return $this;
     }
@@ -37,6 +37,11 @@ class Mailable extends IlluminateMailable
      */
     protected function buildView()
     {
+        $content = $this->content();
+
+        if ($content->mjml) {
+            $this->mjml($content->mjml);
+        }
         if (isset($this->mjml)) {
             return $this->buildMjmlView();
         }
@@ -59,7 +64,7 @@ class Mailable extends IlluminateMailable
      */
     protected function buildMjmlView()
     {
-        $view = View::make($this->mjml, $this->viewData);
+        $view = View::make($this->mjml, $this->buildViewData());
         $mjml = new MJML($view);
 
         return [

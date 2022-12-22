@@ -1,7 +1,11 @@
 {
-    "name": "asahasrabuddhe/laravel-mjml",
+    "name": "progglund/laravel-mjml",
     "description": "A package that enables using MJML with Laravel Mailables.",
     "authors": [
+        {
+            "name": "Kristoffer Eklund",
+            "email": "kristoffer@progglund.dev"
+        },
         {
             "name": "Ajitem Sahasrabuddhe",
             "email": "ajitem.s@outlook.com"
@@ -9,18 +13,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "Asahasrabuddhe\\LaravelMJML\\": "src/"
+            "Progglund\\LaravelMJML\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Asahasrabuddhe\\LaravelMJML\\Tests\\": "tests/"
+            "Progglund\\LaravelMJML\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Asahasrabuddhe\\LaravelMJML\\Providers\\MJMLServiceProvider"
+                "Progglund\\LaravelMJML\\Providers\\MJMLServiceProvider"
             ]
         }
     },
